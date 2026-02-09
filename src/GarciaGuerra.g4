@@ -13,12 +13,12 @@ grammar GarciaGuerra;
 texto: (ENCABEZADO6 | ENCABEZADO5 | ENCABEZADO4 | ENCABEZADO3 | ENCABEZADO2 | ENCABEZADO1 | CITA | HR | CODE | LINK | LIST_ITEM | NEGRITA | NEGRITA2 | CURSIVA | CURSIVA2 | UNMATCHED_ASTERISK | UNMATCHED_UNDERSCORE | PLAIN | NEWLINE)+ ;
 
 // Encabezados (Empezando substring en 7, 6, 5, 4, 3, 2 para eliminar los '#' y el espacio inicial)
-ENCABEZADO6: '######' ' ' ~[\r\n]+ { closeList(); System.out.print("<h6>" + getText().substring(7).trim() + "</h6>"); } ;
-ENCABEZADO5: '#####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h5>" + getText().substring(6).trim() + "</h5>"); } ;
-ENCABEZADO4: '####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h4>" + getText().substring(5).trim() + "</h4>"); } ;
-ENCABEZADO3: '###' ' ' ~[\r\n]+ { closeList(); System.out.print("<h3>" + getText().substring(4).trim() + "</h3>"); } ;
-ENCABEZADO2: '##' ' ' ~[\r\n]+ { closeList(); System.out.print("<h2>" + getText().substring(3).trim() + "</h2>"); } ;
-ENCABEZADO1: '#' ' ' ~[\r\n]+ { closeList(); System.out.print("<h1>" + getText().substring(2).trim() + "</h1>"); } ;
+ENCABEZADO6: '###### ' ~[\r\n]+ { closeList(); System.out.print("<h6>" + getText().substring(7).trim() + "</h6>"); } ;
+ENCABEZADO5: '##### ' ~[\r\n]+ { closeList(); System.out.print("<h5>" + getText().substring(6).trim() + "</h5>"); } ;
+ENCABEZADO4: '#### ' ~[\r\n]+ { closeList(); System.out.print("<h4>" + getText().substring(5).trim() + "</h4>"); } ;
+ENCABEZADO3: '### ' ~[\r\n]+ { closeList(); System.out.print("<h3>" + getText().substring(4).trim() + "</h3>"); } ;
+ENCABEZADO2: '## ' ~[\r\n]+ { closeList(); System.out.print("<h2>" + getText().substring(3).trim() + "</h2>"); } ;
+ENCABEZADO1: '# ' ~[\r\n]+ { closeList(); System.out.print("<h1>" + getText().substring(2).trim() + "</h1>"); } ;
 
 // Cita
 CITA: '> ' ~[\r\n]+ { closeList(); System.out.print("<blockquote>" + getText().substring(1).trim() + "</blockquote>"); } ;
