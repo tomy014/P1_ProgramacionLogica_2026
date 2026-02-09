@@ -17,9 +17,9 @@ public class GarciaGuerraParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		ENCABEZADO6=1, ENCABEZADO5=2, ENCABEZADO4=3, ENCABEZADO3=4, ENCABEZADO2=5, 
-		ENCABEZADO1=6, CITA=7, HR=8, CODE=9, LINK=10, NEGRITA=11, NEGRITA2=12, 
-		CURSIVA=13, CURSIVA2=14, UNMATCHED_ASTERISK=15, UNMATCHED_UNDERSCORE=16, 
-		PLAIN=17, NEWLINE=18, WS=19;
+		ENCABEZADO1=6, CITA=7, HR=8, CODE=9, LINK=10, LIST_ITEM=11, NEGRITA=12, 
+		NEGRITA2=13, CURSIVA=14, CURSIVA2=15, UNMATCHED_ASTERISK=16, UNMATCHED_UNDERSCORE=17, 
+		PLAIN=18, NEWLINE=19, WS=20;
 	public static final int
 		RULE_texto = 0;
 	private static String[] makeRuleNames() {
@@ -37,9 +37,9 @@ public class GarciaGuerraParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "ENCABEZADO6", "ENCABEZADO5", "ENCABEZADO4", "ENCABEZADO3", "ENCABEZADO2", 
-			"ENCABEZADO1", "CITA", "HR", "CODE", "LINK", "NEGRITA", "NEGRITA2", "CURSIVA", 
-			"CURSIVA2", "UNMATCHED_ASTERISK", "UNMATCHED_UNDERSCORE", "PLAIN", "NEWLINE", 
-			"WS"
+			"ENCABEZADO1", "CITA", "HR", "CODE", "LINK", "LIST_ITEM", "NEGRITA", 
+			"NEGRITA2", "CURSIVA", "CURSIVA2", "UNMATCHED_ASTERISK", "UNMATCHED_UNDERSCORE", 
+			"PLAIN", "NEWLINE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -135,6 +135,10 @@ public class GarciaGuerraParser extends Parser {
 		public TerminalNode LINK(int i) {
 			return getToken(GarciaGuerraParser.LINK, i);
 		}
+		public List<TerminalNode> LIST_ITEM() { return getTokens(GarciaGuerraParser.LIST_ITEM); }
+		public TerminalNode LIST_ITEM(int i) {
+			return getToken(GarciaGuerraParser.LIST_ITEM, i);
+		}
 		public List<TerminalNode> NEGRITA() { return getTokens(GarciaGuerraParser.NEGRITA); }
 		public TerminalNode NEGRITA(int i) {
 			return getToken(GarciaGuerraParser.NEGRITA, i);
@@ -201,7 +205,7 @@ public class GarciaGuerraParser extends Parser {
 				{
 				setState(2);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 524286L) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1048574L) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -214,7 +218,7 @@ public class GarciaGuerraParser extends Parser {
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 524286L) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 1048574L) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -229,9 +233,9 @@ public class GarciaGuerraParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u0013\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
+		"\u0004\u0001\u0014\b\u0002\u0000\u0007\u0000\u0001\u0000\u0004\u0000\u0004"+
 		"\b\u0000\u000b\u0000\f\u0000\u0005\u0001\u0000\u0000\u0000\u0001\u0000"+
-		"\u0000\u0001\u0001\u0000\u0001\u0012\u0007\u0000\u0003\u0001\u0000\u0000"+
+		"\u0000\u0001\u0001\u0000\u0001\u0013\u0007\u0000\u0003\u0001\u0000\u0000"+
 		"\u0000\u0002\u0004\u0007\u0000\u0000\u0000\u0003\u0002\u0001\u0000\u0000"+
 		"\u0000\u0004\u0005\u0001\u0000\u0000\u0000\u0005\u0003\u0001\u0000\u0000"+
 		"\u0000\u0005\u0006\u0001\u0000\u0000\u0000\u0006\u0001\u0001\u0000\u0000"+

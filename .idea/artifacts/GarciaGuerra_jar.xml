@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GarciaGuerra:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GarciaGuerra_jar</output-path>
+    <root id="archive" name="GarciaGuerra.jar">
+      <element id="module-output" name="GarciaGuerra" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../antlr-4.13.2-complete.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

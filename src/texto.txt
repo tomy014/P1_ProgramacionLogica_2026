@@ -71,7 +71,7 @@ Incorrecto: [Esto deberia ser un enlace](http://www.urjc.es)
 - primer item
 - segundo item
 
-- solo un ítem
+- solo un item
 
 ### Fin de listas
 

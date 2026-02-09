@@ -12,19 +12,19 @@ grammar GarciaGuerra;
 
 texto: (ENCABEZADO6 | ENCABEZADO5 | ENCABEZADO4 | ENCABEZADO3 | ENCABEZADO2 | ENCABEZADO1 | CITA | HR | CODE | LINK | LIST_ITEM | NEGRITA | NEGRITA2 | CURSIVA | CURSIVA2 | UNMATCHED_ASTERISK | UNMATCHED_UNDERSCORE | PLAIN | NEWLINE)+ ;
 
-// Encabezados
-ENCABEZADO6: '######' ' ' ~[\r\n]+ { closeList(); System.out.print("<h6>" + getText().substring(7).trim() + "</h6>\n"); } ;
-ENCABEZADO5: '#####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h5>" + getText().substring(6).trim() + "</h5>\n"); } ;
-ENCABEZADO4: '####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h4>" + getText().substring(5).trim() + "</h4>\n"); } ;
-ENCABEZADO3: '###' ' ' ~[\r\n]+ { closeList(); System.out.print("<h3>" + getText().substring(4).trim() + "</h3>\n"); } ;
-ENCABEZADO2: '##' ' ' ~[\r\n]+ { closeList(); System.out.print("<h2>" + getText().substring(3).trim() + "</h2>\n"); } ;
-ENCABEZADO1: '#' ' ' ~[\r\n]+ { closeList(); System.out.print("<h1>" + getText().substring(2).trim() + "</h1>\n"); } ;
+// Encabezados (Empezando substring en 7, 6, 5, 4, 3, 2 para eliminar los '#' y el espacio inicial)
+ENCABEZADO6: '######' ' ' ~[\r\n]+ { closeList(); System.out.print("<h6>" + getText().substring(7).trim() + "</h6>"); } ;
+ENCABEZADO5: '#####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h5>" + getText().substring(6).trim() + "</h5>"); } ;
+ENCABEZADO4: '####' ' ' ~[\r\n]+ { closeList(); System.out.print("<h4>" + getText().substring(5).trim() + "</h4>"); } ;
+ENCABEZADO3: '###' ' ' ~[\r\n]+ { closeList(); System.out.print("<h3>" + getText().substring(4).trim() + "</h3>"); } ;
+ENCABEZADO2: '##' ' ' ~[\r\n]+ { closeList(); System.out.print("<h2>" + getText().substring(3).trim() + "</h2>"); } ;
+ENCABEZADO1: '#' ' ' ~[\r\n]+ { closeList(); System.out.print("<h1>" + getText().substring(2).trim() + "</h1>"); } ;
 
 // Cita
-CITA: '> ' ~[\r\n]+ { closeList(); System.out.print("<blockquote>" + getText().substring(1).trim() + "</blockquote>\n"); } ;
+CITA: '> ' ~[\r\n]+ { closeList(); System.out.print("<blockquote>" + getText().substring(1).trim() + "</blockquote>"); } ;
 
 // Línea horizontal
-HR: ( '---' | '___' | '***' ) { closeList(); System.out.print("<hr/>\n"); } ;
+HR: ( '---' | '___' | '***' ) { closeList(); System.out.print("<hr/>"); } ;
 
 // Bloques de código
 CODE: '~~~' ( . | '\r' | '\n' )*? '~~~' { closeList(); String s = getText().substring(3, getText().length() - 3); System.out.print("<code><pre>" + s.trim() + "</pre></code>\n"); } ;
@@ -66,7 +66,7 @@ UNMATCHED_UNDERSCORE: '_' ~[\r\n_]+ { closeList(); System.out.print(getText()); 
 // Texto plano (excluir '[', '*' '_' etc.)
 PLAIN: (~('\r' | '\n' | '[' | '_' | '*' | '`' | '~' | '>'))+ { closeList(); System.out.print(getText()); } ;
 
-// Saltos de línea: si hay una línea en blanco próxima cerramos lista
+// Saltos de línea: si hay una línea en blanco hay que cerrar la lista abierta.
 NEWLINE: '\r'? '\n' { if (inList) { int la = _input.LA(1); if (la== '\r' || la=='\n' || la==org.antlr.v4.runtime.IntStream.EOF) closeList(); } System.out.print("\n"); } ;
 
 // Espacios en blanco
