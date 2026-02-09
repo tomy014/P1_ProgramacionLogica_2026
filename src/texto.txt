@@ -1,0 +1,78 @@
+# Encabezado de primer nivel
+## Encabezado de segundo nivel
+#### Encabezado de cuarto nivel
+
+el texto en negrita se formatea con dos **asteriscos** o __guiones bajos__
+
+el texto en cursiva se formatea con un *asterisco* o _guiones bajos_
+
+> indica una cita dentro del texto
+
+antes de la linea horizontal
+---
+despues de la linea horizontal
+
+~~~
+System.out.print("Primera linea de codigo");
+System.out.print("... mas codigo ...");
+System.out.print("ultima linea de codigo");
+~~~
+
+#ENLACE
+[Esto deberia ser un enlace](thphp://NO-es-una-URL_VALIDA)
+
+
+# Este es un ejemplo de lenguaje MarkDawn
+## Contenidos requeridos para el aprobado
+### Marcar texto en negrita
+Podemos hacerlo encerrando el texto entre dobles asteriscos o dobles barras bajas
+
+#### Con dobles asteriscos
+**Esto es negrita con asteriscos**
+
+#### Con dobles barras bajas
+__Esto es negrita con barras bajas__
+
+### Definir una cita
+Utilizamos el mayor que
+> Esto es una cita
+
+### Escribir lineas horizontales
+Podemos hacerlo con tres guiones o barras bajas o asteriscos
+#### Con guiones bajos
+---
+#### Con barras bajas
+___
+#### Con asteriscos
+***
+
+### Definir bloques de codigo
+Lo haremos encerrando el codigo entre triples virgulillas
+
+~~~
+System.out.println("Hola");
+System.out.println("Esto es una prueba de codigo");
+~~~
+
+## Por ultimo esto es una prueba de los diferentes tipos de encabezados
+
+# Encabezado de primer nivel
+## Encabezado de segundo nivel
+### Encabezado de tercer nivel
+#### Encabezado de cuarto nivel
+##### Encabezado de quinto nivel
+###### Encabezado de sexto nivel
+
+# Enlaces
+Correcto: [Esto deberia ser un enlace](thphp://NO-es-una-URL_VALIDA)
+Incorrecto: [Esto deberia ser un enlace](http://www.urjc.es)
+
+### Listas
+- primer item
+- segundo item
+
+- solo un ítem
+
+### Fin de listas
+
+**FIN**
